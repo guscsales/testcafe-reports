@@ -1,7 +1,7 @@
 import React from 'react';
 import propTypes from 'prop-types';
 
-class ErrorPage extends React.Componetn {
+class ErrorPage extends React.Component {
 	static getInitialProps({ res, err }) {
 		const origin = res ? res : err;
 		const statusCode = origin ? origin.statusCode : null;
@@ -11,11 +11,9 @@ class ErrorPage extends React.Componetn {
 	render() {
 		switch (this.props.statusCode) {
 			case 404:
-				return "Not found";
+				return 'Not found';
 			default:
-				return (
-					"Error"
-				);
+				return 'Error';
 		}
 	}
 }

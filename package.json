@@ -6,11 +6,11 @@
   "scripts": {
     "next": "next",
     "prebuild": "npm run clean",
-    "build": "next build",
+    "build": "NODE_ENV=development next build",
     "prebuild:prod": "npm run clean",
-    "build:prod": "PROFILE=prod next build",
+    "build:prod": "NODE_ENV=production next build",
     "clean": "rm -rf ./build ./_tmp ./_next ./_error .next",
-    "dev": "nodemon --inspect ./server/www.js",
+    "dev": "NODE_ENV=development nodemon --inspect ./server/www.js",
     "local": "PORT=9000 HTTPS_PORT=9001 npm run dev",
     "lint": "eslint . --fix && stylelint './**/*.css' './**/*.scss' --fix",
     "postbuild": "next export -o ./_tmp && cp -r ./_tmp/* ./ && rm -rf ./_tmp/",
@@ -22,9 +22,6 @@
     "watch": [
       "./server"
     ],
-    "execMap": {
-      "js": "node -r dotenv/config --inspect"
-    },
     "env": {
       "NODE_ENV": "development"
     }
@@ -52,7 +49,10 @@
     "babel-loader": "^8.0.5",
     "express": "^4.16.3",
     "file-loader": "^3.0.1",
+    "lost": "^8.3.1",
     "next": "^7.0.3",
+    "next-compose-plugins": "^2.1.1",
+    "next-redux-wrapper": "^3.0.0-alpha.2",
     "node-sass": "4.11.0",
     "prop-types": "^15.7.1",
     "react": "^16.8.1",
@@ -60,6 +60,7 @@
     "react-redux": "^6.0.0",
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.8",
+    "redux-mock-store": "^1.5.3",
     "redux-thunk": "^2.2.0"
   },
   "devDependencies": {

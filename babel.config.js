@@ -1,25 +1,11 @@
-module.exports = {
-	env: {
-		development: {
-			presets: ['next/babel']
-		},
-		production: {
-			presets: ['next/babel']
-		},
-		qa: {
-			presets: ['next/babel']
-		},
-		test: {
-			presets: [
-				[
-					'next/babel',
-					{
-						'preset-env': {
-							modules: 'commonjs'
-						}
-					}
-				]
-			]
-		}
-	}
+'use strict';
+
+/* istanbul ignore file */
+
+module.exports = api => {
+	api.cache.using(() => process.env.NODE_ENV);
+
+	return {
+		presets: ['next/babel']
+	};
 };

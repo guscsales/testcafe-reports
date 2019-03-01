@@ -10,7 +10,7 @@ app.get('/health-check', (req, res) =>
 	})
 );
 
-const nextApp = next({ dev });
+const nextApp = next({ dev: true });
 const handle = nextApp.getRequestHandler();
 
 nextApp.prepare().then(() => {
@@ -21,7 +21,8 @@ nextApp.prepare().then(() => {
 	server.on('error', error => {
 		throw error;
 	});
-	logger.info('Server HTTP is UP');
+
+	console.log(`Server HTTP is UP on port ${port}`);
 
 	app.get('*', (req, res) => handle(req, res));
 });

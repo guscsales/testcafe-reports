@@ -29,6 +29,5 @@ module.exports = {
 			statements: 100
 		}
 	},
-	transformIgnorePatterns: ['node_modules/(?!ps-react-bootstrap)'],
-	testURL: `http://${config.hostname}`
+	transformIgnorePatterns: ['node_modules/(?!ps-react-bootstrap)']
 };
